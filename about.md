@@ -1,26 +1,17 @@
 ---
 layout: page
-title: About Me
+title: About Me- Someone you should know
 permalink: /about/
 ---
-I used to work in a laboratory doing research with lasers and materials.  I wanted to work on topics that had a more immediate impact on the world, and tied in my aesthetics and communication abilities.  I'm interested in data visualization that enables better decision making, and working on projects that have a day-to-day impact on users.
+I am currently a PhD candicate of Peking University, interested in Data Science. I am familiar with R language and Python, and good at using these languages to do data analysis and visualization. I am now applying graduate program in USA. I used to work in a laboratory doing research with biomaterials.  However, I wanted to work on problems that had a more immediate impact on the world, and tied in my analytical, communicational and coding abilities.  So I did not hesitate to make this change and deeply I believe I will achieve something great.
 
 Some of the technologies I'm familar with:
 
-* HTML
-* CSS
-* JavaScript
-* D3.js
-* jQuery
-* AngularJS
-* Bootstrap
-* Ruby on Rails
-* Laravel
-* mySQL
-* PHP
-* Vagrant
-* Swagger/OpenAPI
-* git/GitHub
-* qGIS
-* OpenLayers, Leaflet, MapBox
-* topoJSON/geoJSON
+* R
+* Python
+* SQL
+* Matlab
+* Java
+* SPSS
+* Tableau
+* MS Office Suite
