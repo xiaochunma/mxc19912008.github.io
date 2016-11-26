@@ -5,7 +5,7 @@ date:   2016-11-24
 tech: HTML jQuery jQuery-UI
 image: 'year.png'
 ghsource: 'mxc19912008/house-price'
-ghpages: 'https://public.tableau.com/shared/X69CJTC9N?:display_count=yes'
+ghpages: 'https://public.tableau.com/profile/xiaochun.ma#!/vizhome/Area-Price/1'
 
 
 ---
