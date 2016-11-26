@@ -1,15 +1,15 @@
 ---
 layout: page
-title: Contact Me
+title: Contact Me - Feel free
 permalink: /contact/
 ---
 
 There are several different ways to find me on the internet.
 
-* [Email](mailto:thfield@gmail.com)
-* [Twitter](http://www.twitter.com/thfield)
-* [LinkedIn](http://www.linkedin.com/in/thfield)
-* [GitHub](https://github.com/thfield)
-* [Medium](https://medium.com/@thfield/)
+* [Email](mailto:xiaochunma.pku@gmail.com)
+* [Kaggle](https://www.kaggle.com/mxc1991)
+* [LinkedIn](https://cn.linkedin.com/in/xiaochun-ma-854871113)
+* [GitHub](https://github.com/mxc19912008)
+* [Facebook](https://www.facebook.com/mxc19912015)
 
-Sometimes I blog at the [Data Science Working Group at SF Brigade](http://datascience.codeforsanfrancisco.org/)
+Please feel free to contact me ;)
