@@ -1,12 +1,12 @@
 # Site settings
-title: Tyler Field
-email: thfield@gmail.com
+title: Xiaochun Ma
+email: xiaochunma.pku@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Tyler's portfolio site on the web.
+  Xiaochun's exhibitation site on the web.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://thfield.github.io" # the base hostname & protocol for your site
-twitter_username: thfield
-github_username:  thfield
+url: "https://mxc19912008.github.io/" # the base hostname & protocol for your site
+Linkedin_username: Xiaochun Ma
+github_username:  mxc19912008
 
 # Build settings
 markdown: kramdown
