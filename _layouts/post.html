@@ -7,7 +7,7 @@ layout: default
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
     <p>
-      {% if page.ghpages %} <a href="{{ page.ghpages }}"> <font style="font-size:16px;">View live site</font></a> {% endif %}
+      {% if page.ghpages %} <a href="{{ page.ghpages }}"> View live site</a> {% endif %}
       {% if page.outlink %} <a href="{{ page.outlink }}"> View live site</a> {% endif %}
       <a><img class="big" src="{{ page.image | prepend: site.images }}"/></a>
     </p>
