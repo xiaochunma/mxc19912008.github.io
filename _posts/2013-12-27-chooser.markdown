@@ -9,4 +9,4 @@ ghpages: 'https://public.tableau.com/profile/xiaochun.ma#!/vizhome/Area-Price/1'
 
 
 ---
-A little tool that quickly allows you to fill a shopping cart and choose between differing options for your items.
+Generally, newly built and newly remolded houses tend to be of higher quality(color) and sell better(Area).
