@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "HDTGM Repeat Actor Chart"
+date:   2015-10-25
+tech:  D3.js HTML NodeJS bash
+image: 'hdtgm.png'
+ghsource: 'thfield/hdtgm/'
+ghpages: 'hdtgm/'
+
+---
+Charts exploring actor/director/writer connections between movies.  The chart shows actors/directors/writers who appear in more than one movie, with some mouseover effects to highlight individuals.  The color of their circle represents the number of movies they have appeared in.
+
+I use a bash script to query two movie APIs, then use Node to run a script that parses the response into the JSON file for drawing the chart.

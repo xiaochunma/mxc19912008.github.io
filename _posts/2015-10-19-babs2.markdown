@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "BABS 2"
+date:   2015-10-19
+tech:  Ruby-on-Rails D3.js Postgres
+image: 'babs2.png'
+ghsource: 'thfield/babs2/'
+outlink: 'https://enigmatic-river-8975.herokuapp.com/'
+
+---
+An update to the BABS project.  The Bike Share company released another dataset, so I included it and am slowly turning my charts into a Rails app.

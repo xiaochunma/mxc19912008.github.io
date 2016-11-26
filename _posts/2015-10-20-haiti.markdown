@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "Haiti Choropleths"
+date:   2015-10-20
+tech:  D3.js TopoJSON
+image: 'haiti.png'
+ghsource: 'thfield/haiti/'
+ghpages: 'haiti/'
+
+---
+Started as a way to help a friend with an NGO in Haiti display the organization's data.  I adapted it to Kenya in order to help another friend's organization.

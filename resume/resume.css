@@ -1,0 +1,62 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700);
+
+body {
+	font-family: 'Open Sans', 'Helvetica', sans-serif;
+	color: black;
+	background-color: white;
+}
+
+header {
+	color: gray;
+	margin-left: 4em;
+	padding: 2em 0 0 2em;
+}
+
+main {
+	margin-left: 4em;
+	padding: 1em;
+	width: 70%;
+}
+
+ul {
+	list-style-type: none;
+}
+
+p {
+	margin-left: 1em;
+}
+
+div.section {
+	margin-left: 2em;
+}
+
+h1 {
+	font-size: 2em;	
+}
+
+h2 {
+	font-size: 0.8em;	
+	display: inline;
+	padding-right: 1em;
+}
+
+h3 {
+	font-weight: bold;
+	color: gray;
+}
+
+h4 {
+	font-variant: small-caps;
+	font-style: italic;
+	margin-left: 0.5em;
+	color: gray;
+}
+
+p {
+	color: black;	
+}
+
+a {
+	text-decoration: none;
+}
+
