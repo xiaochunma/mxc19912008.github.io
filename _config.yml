@@ -2,7 +2,8 @@
 title: Xiaochun Ma
 email: xiaochunma.pku@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Xiaochun's exhibitation site on the web.
+
+  Xiaochun's exhibition site on the web.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://mxc19912008.github.io/" # the base hostname & protocol for your site
 Linkedin_username: Xiaochun Ma
