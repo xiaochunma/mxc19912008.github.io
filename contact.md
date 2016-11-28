@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Contact Me - Feel free
+title: Contact Me - Let's be friends!
 permalink: /contact/
 ---
 
@@ -12,4 +12,4 @@ There are several different ways to find me on the internet.
 * [GitHub](https://github.com/mxc19912008)
 * [Facebook](https://www.facebook.com/mxc19912015)
 
-Please feel free to contact me ;)
+Please feel free to contact me. And let's be friends;) 
