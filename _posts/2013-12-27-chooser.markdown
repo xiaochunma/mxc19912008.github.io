@@ -1,9 +1,27 @@
 ---
 layout: post
 title:  "House price"
-h2:  "Description"
+h3:"Description"
+Description:  This is a house price prediction project on Kaggle. This dataset was compiled by Dean De Cock for use in data science education. This project is based on two datasets of train and test. The train dataset is of 1460 items with 80 variables and one especially important one of saleprice, and we want to make prediction on saleprice of test dataset. Following is the the introduction of my work.
+h5:"Correlation visualization with R packages(tabplots)"
+Image_1:'1.png'
+Image_2:'2.png'
+Image_3:'3.png'
+Image_4:'4.png'
+Image_5:'5.png'
+Image_6:'6.png'
+Image_7:'7.png'
+Image_8:'8.png'
+Image_9:'9.png'
+Image_10:'10.png'
+Image_11:'11.png'
+Image_12:'12.png'
+Image_13:'13.png'
+Image_14:'14.png'
+Image_15:'15.png'
+Image_16:'16.png'
 date:   2016-11-24
-tech: HTML jQuery jQuery-UI
+tech: R, Python, Tableau, Excel
 image: 'house-prices-up.jpg'
 ghsource: ''
 ghpages: ''
