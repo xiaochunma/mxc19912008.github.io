@@ -11,5 +11,7 @@ github_username:  mxc19912008
 
 # Build settings
 markdown: kramdown
+kramdown:
+  input: GFM
 
 images: "/images/"
