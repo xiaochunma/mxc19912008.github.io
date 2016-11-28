@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Me- Someone you should know
+title: About Me- A life-long learner
 permalink: /about/
 ---
 I am currently a PhD candicate of Peking University, interested in Data Science. 
