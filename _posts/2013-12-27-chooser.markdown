@@ -3,7 +3,7 @@ layout: post
 title:  "House price"
 h3:"Description"
 date:   2016-11-24
-tech: R, Python, Tableau, Excel
+tech: HTML CSS JavaScript
 image: 'house-prices-up.jpg'
 ghsource: ''
 ghpages: ''
@@ -11,3 +11,4 @@ ghpages: ''
 
 ---
 Generally, newly built and newly remolded houses tend to be of higher quality(color) and sell better(Area).
+
