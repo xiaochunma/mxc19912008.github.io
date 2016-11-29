@@ -3,7 +3,7 @@ layout: post
 title:  "House price"
 h3:   "Description"
 date:   2016-11-24
-tech: HTML CSS JavaScript
+tech: R Python Tableau Excel
 image: 'house-prices-up.jpg'
 ghsource: 'house-prices-advanced-regression-techniques'
 ghpages: 'house-prices-advanced-regression-techniques/data'
