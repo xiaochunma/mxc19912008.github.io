@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<link rel="stylesheet" href="{{ site.baseurl }}/foundation-6/css/foundation.min.css">
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p>
+      <a href="{{ page.ghsource | prepend: 'http://github.com/' }}"> View source on GitHub </a>
+      {% if page.ghpages %} <a href="http://thfield.github.io/{{ page.ghpages }}">| View live site</a> {% endif %}
+      {% if page.outlink %} <a href="{{ page.outlink }}">| View live site</a> {% endif %}
+    </p>
+    <p class="meta">
+      {{ page.tech }}
+    </p>
+  </header>
+
+  <div class="row">
+    <div class="small-12 columns">
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-4 columns">
+      {% if page.ghpages %} <a href="http://thfield.github.io/{{ page.ghpages }}">{% endif %}
+        <img class="small" src="{{ page.image | prepend: site.images }}"/>
+      {% if page.ghpages %} </a>{% endif %}
+    </div>
+
+    <div class="small-12 medium-8 columns">
+      <article class="post-content">
+        {{ content }}
+      </article>
+    </div>
+  </div>
+</div>
