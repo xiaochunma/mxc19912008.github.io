@@ -82,8 +82,8 @@ full["ExterQual"] = full["ExterQual"].map(qual_score).astype(int)...</pre>
 Now it's time to select features:  
 we can use features we selected using visualization, or we can also use 'Boruta' to do it.  
 <pre>boruta.train <- Boruta(SalePrice~., data = train_1, doTrace = 2)</pre>  
-And the results are similar.  
-<b> Model building </b>   
+And the results are similar.    
+<b> Model building </b>     
 After we finished feature engineering and selection, we get rid of Id, which is of no use, and then the train and test data finally are to be divided.  
 For randomForest: we firstly scale the numeric variables and then dummized the character(factor) variables.  
 <pre> # get rid of Id
