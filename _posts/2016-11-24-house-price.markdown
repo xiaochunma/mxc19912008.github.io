@@ -14,8 +14,8 @@ This is a house price prediction project on Kaggle.
 The dataset was compiled by Dean De Cock for use in data science education.  
 This project is based on two datasets of train and test. The train dataset is of 1460 items with 80 variables and one especially important one of saleprice, and we want to make prediction on saleprice of test dataset.  
 Following is a short exhibition of my work on visualization.  
-<h5>1 Correlation visualization with R packages(tabplots)_inspired by Laurae@Kaggle</h5>   
-This part aims to find strong-related variables amoung 80 variables to help us do feature selection and engineering.
+<h5>1. Correlation visualization with R packages(tabplots)_inspired by Laurae@Kaggle</h5>  
+This part aims to find strong-related variables amoung 80 variables to Saleprice which further help us do feature selection and engineering.  
     <img src="\images\1.png">
     <img src="\images\2.png">
     <img src="\images\3.png">
@@ -34,4 +34,5 @@ This part aims to find strong-related variables amoung 80 variables to help us d
     <img src="\images\16.png">
     Of all variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, BsmtFullBath, (X)1stFlrSF, GrLiveArea, FullBath, HalfBath, TotRmsAbvGrd, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF, OpenPorchSF, MSZonging, LotShape, MasVnrType, BsmtExposure, HeatingQC, KitchenQual, FireplaceQu, GarageFinsh, SaleType and SaleCondition <b>show good shape resemblance or anti-similarity.</b>  
     This means these variables are of <b>good correlations with Saleprice.</b>  
-
+<h5>2. Correlation visualization with R packages(ggplot2)</h5> 
+This section is to find strong-related numeric variables amoung each other to help us assure feature selection and better relate highly related variables for feature engineering.
