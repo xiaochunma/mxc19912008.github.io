@@ -40,10 +40,10 @@ This section is to find strong-related numeric variables amoung each other to he
 Of all numeric variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, 1stFlrSF, GrLiveArea, FullBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF and OpenPorchSF show strong co-relationship with saleprice, which is in accordance with our conclusion above.   
 Besides, because it is easy to judge the relationship of any two variables in this visualized correlation matrix, we can dig deeper to do feature engineering or something else interesting:)  
 <h5>3. Feature engineering, selection, modeling and prediction </h5> 
-<b> Ruling out outliers</b>
+<b> Ruling out outliers</b>  
 Firstly, we drop outliers in the train data in case of imprecise prediction. To find outliers, we can make scatter plot with each numeric variable and saleprice, and find those extremely irregular ones. For example, in the GrLivArea variable, there are two obvious outliers when GrLivArea>4500, thus we can rule them out by setting GrLivArea<=4500, or drop out those that are bigger than 4500.   
 <img src="\images\GrLivArea_outliers.png">  
-<b> Dealing with missing values </b>
+<b> Dealing with missing values </b>  
 Then, we need to combine train and test together using 'rbind' to uniformize factor levels in these two dataframe(be sure to give NAs to test$SalePrice), which will help us a lot when making predictions. By the way, it is also a good time to fill the missing values(except those in SalePrice of test). Here we can use 'mice' or 'rpart'. However, before this we need to decide the meanning of missing values, for example, missing values in "FireplaceQu" means no fireplace means no quality when we check those in "Fireplace", while "LotFrontage" misses its values maybe because of misses of records since a house should has its lot frontage. Below is how I deal with missing values with 'mice' and 'rpart' packages.  
 This gives an example of 'mice' imputation  
 <pre>
@@ -75,4 +75,24 @@ full$AllLivArea <- full$X1stFlrSF+full$X2ndFlrSF+full$LowQualFinSF+full$GrLivAre
 # Add up numbers of full bathrooms and 0.5* half bathrooms to get total bathroom.   
 full$totalbath <- full$BsmtFullBath+0.5*full$BsmtHalfBath+full$FullBath+0.5*full$HalfBath  
 # Add up all the porch area to get total porch area.  
-full$totalPorchArea <- full$OpenPorchSF+full$EnclosedPorch+full$X3SsnPorch+full$ScreenPorch  </pre>
+full$totalPorchArea <- full$OpenPorchSF+full$EnclosedPorch+full$X3SsnPorch+full$ScreenPorch  </pre>  
+Next, we want to give 'Ex', 'Gd', 'TA','Fa','Po' values for better modeling. This is easier with the map in Python, thus we use write.csv function to store current data for python.
+<pre>qual_score = {None: 0, "Po": 1, "Fa": 2, "TA": 3, "Gd": 4, "Ex": 5}  
+full["ExterQual"] = full["ExterQual"].map(qual_score).astype(int)...</pre>  
+Now it's time to select features:  
+we can use features we selected using visualization, or we can also use 'Boruta' to do it.  
+<pre>boruta.train <- Boruta(SalePrice~., data = train_1, doTrace = 2)</pre>  
+And the results are similar.  
+<b> Model building </b>   
+After we finished feature engineering and selection, we get rid of Id, which is of no use, and then the train and test data finally are to be divided.  
+For randomForest: we firstly scale the numeric variables and then dummized the character(factor) variables.  
+<pre> # get rid of Id
+full_noid <- full[,-1]  
+ # get the names of numeric variables (There is an easier way using sapply function)
+numnames <-  c('MSSubClass','LotArea','OverallQual','OverallCond','YearBuilt','YearRemodAdd','X1stFlrSF','X2ndFlrSF','LowQualFinSF','GrLivArea','FullBath','HalfBath','BedroomAbvGr','KitchenAbvGr','TotRmsAbvGrd','Fireplaces','WoodDeckSF','OpenPorchSF','EnclosedPorch','X3SsnPorch','ScreenPorch','PoolArea','MiscVal','MoSold','YrSold','FloorArea','AllLivArea','OverallRate','totalPorchArea','LotFrontage','MasVnrArea','BsmtFinSF1','BsmtFinSF2','BsmtUnfSF','TotalBsmtSF','BsmtFullBath','BsmtHalfBath','GarageCars','GarageArea','subtractYearBuilt','subtractYearRemodAdd','subtractYrSold','totalbath')  
+full_s <- full_noid[numnames]  
+# Scale all the numeric data except saleprice  
+full_ss <- apply(full_s, 2, function(x) scale(x))  
+# Dummized all the character variables  
+dummy_full <- model.matrix(~MSSubClass+LotFrontage+MasVnrArea+BsmtFinSF1+BsmtFinSF2+BsmtUnfSF+TotalBsmtSF+BsmtFullBath+BsmtHalfBath+GarageCars+GarageArea+subtractYearBuilt+subtractYearRemodAdd+subtractYrSold+totalbath+LotArea+OverallQual+OverallCond+YearBuilt+YearRemodAdd+X1stFlrSF+X2ndFlrSF+LowQualFinSF+GrLivArea+FullBath+HalfBath+BedroomAbvGr+KitchenAbvGr+TotRmsAbvGrd+Fireplaces+WoodDeckSF+OpenPorchSF+EnclosedPorch+X3SsnPorch+ScreenPorch+PoolArea+MiscVal+MoSold+YrSold+SalePrice+FloorArea+AllLivArea+OverallRate+totalPorchArea+MSZoning+Street+Alley+LotShape+LandContour+Utilities+LotConfig+LandSlope+Neighborhood+Condition1+Condition2+BldgType+HouseStyle+RoofStyle+RoofMatl+Exterior1st+Exterior2nd+MasVnrType+ExterQual+ExterCond+Foundation+BsmtQual+BsmtCond+BsmtExposure+BsmtFinType1+BsmtFinType2+Heating+HeatingQC+CentralAir+Electrical+KitchenQual+Functional+FireplaceQu+GarageType+GarageYrBlt+GarageFinish+GarageQual+GarageCond+PavedDrive+PoolQC+Fence+MiscFeature+SaleType+SaleCondition+SeasonSold-1,full_noid)
+</pre>  
