@@ -40,17 +40,17 @@ This section is to find strong-related numeric variables amoung each other to he
 Of all numeric variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, 1stFlrSF, GrLiveArea, FullBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF and OpenPorchSF show strong co-relationship with saleprice, which is in accordance with our conclusion above.   
 Besides, because it is easy to judge the relationship of any two variables in this visualized correlation matrix, we can dig deeper to do feature engineering or something else interesting:)  
 <h5>3. Feature engineering, selection, modeling and prediction </h5> 
-<h6> Ruling out outliers</h6>
+<b> Ruling out outliers</b>
 Firstly, we drop outliers in the train data in case of imprecise prediction. To find outliers, we can make scatter plot with each numeric variable and saleprice, and find those extremely irregular ones. For example, in the GrLivArea variable, there are two obvious outliers when GrLivArea>4500, thus we can rule them out by setting GrLivArea<=4500, or drop out those that are bigger than 4500.   
 <img src="\images\GrLivArea_outliers.png">  
-<h6> Dealing with missing values </h6>
+<b> Dealing with missing values </b>
 Then, we need to combine train and test together using 'rbind' to uniformize factor levels in these two dataframe(be sure to give NAs to test$SalePrice), which will help us a lot when making predictions. By the way, it is also a good time to fill the missing values(except those in SalePrice of test). Here we can use 'mice' or 'rpart'. However, before this we need to decide the meanning of missing values, for example, missing values in "FireplaceQu" means no fireplace means no quality when we check those in "Fireplace", while "LotFrontage" misses its values maybe because of misses of records since a house should has its lot frontage. Below is how I deal with missing values with 'mice' and 'rpart' packages.  
 This gives an example of 'mice' imputation  
 <pre>
-# Selecting the variables that need to be 'miced' #
+# Selecting the variables that need to be 'miced' 
 namenacol <-c('LotFrontage', 'MasVnrType', 'MasVnrArea', 'MSZoning', 'Utilities' , 'BsmtFullBath', 'BsmtHalfBath'   , 'Functional', 'Exterior1st', 'Exterior2nd' , 'BsmtFinSF1', 'BsmtFinSF2', 'BsmtUnfSF', 'TotalBsmtSF', 'Electrical', 'KitchenQual', 'GarageCars', 'GarageArea', 'SaleType')   
 full_m <- full[namenacol]  
-# Do mice  #  
+# Do mice  
 require(mice)  
 imp.full <- mice(full_m, m=1, method='cart', printFlag=FALSE)  
 full_imp <- complete(imp.full)  
@@ -66,4 +66,13 @@ area.rpart <- rpart(GarageArea ~ .,
 
 full$GarageArea[is.na(full$GarageArea)] <- round(predict(area.rpart, full[is.na(full$GarageArea),col.pred]))
 </pre>
-<h6> Feature engineering and selection </h6>
+<b> Feature engineering and selection </b>  
+Let's do some feature engineering.  
+<pre># Add up area of 1st floor and 2nd floor to get total floor area.  
+full$FloorArea <- full$X1stFlrSF+full$X2ndFlrSF  
+# Add up area of 1st floor, 2nd floor, low quality finshed area and above ground living area to get total living area.  
+full$AllLivArea <- full$X1stFlrSF+full$X2ndFlrSF+full$LowQualFinSF+full$GrLivArea  
+# Add up numbers of full bathrooms and 0.5* half bathrooms to get total bathroom.   
+full$totalbath <- full$BsmtFullBath+0.5*full$BsmtHalfBath+full$FullBath+0.5*full$HalfBath  
+# Add up all the porch area to get total porch area.  
+full$totalPorchArea <- full$OpenPorchSF+full$EnclosedPorch+full$X3SsnPorch+full$ScreenPorch  </pre>
