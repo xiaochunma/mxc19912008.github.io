@@ -10,12 +10,11 @@ ghpages: 'house-prices-advanced-regression-techniques/data'
 image_1: '1.npg'
 
 ---
-    <p>This is a house price prediction project on <a href=" https://www.kaggle.com/c/house-prices-advanced-regression-techniques">Kaggle</a>. </p>
-    <p>This dataset was compiled by Dean De Cock for use in data science education. </p>
-    <p>This project is based on two datasets of <a href=" https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data">train and test</a>. The train dataset is of 1460 items with 80 variables and one especially important one of saleprice, and we want to make prediction on saleprice of test dataset.</p> 
-    <p>Following is a short exhibition of my work on visualization.</p>
-    <p><b>1. Correlation visualization with R packages(tabplots)_inspired by Laurae@Kaggle</b></p>
-    <p>
+This is a house price prediction project on Kaggle.
+The dataset was compiled by Dean De Cock for use in data science education.
+This project is based on two datasets of train and test. The train dataset is of 1460 items with 80 variables and one especially important one of saleprice, and we want to make prediction on saleprice of test dataset.
+Following is a short exhibition of my work on visualization.
+<b>1. Correlation visualization with R packages(tabplots)_inspired by Laurae@Kaggle</b>
     <img src="\images\1.png">
     <img src="\images\2.png">
     <img src="\images\3.png">
@@ -32,8 +31,6 @@ image_1: '1.npg'
     <img src="\images\14.png">
     <img src="\images\15.png">
     <img src="\images\16.png">
-    </p>
     <p> Of all variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, BsmtFullBath, (X)1stFlrSF, GrLiveArea, FullBath, HalfBath, TotRmsAbvGrd, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF, OpenPorchSF, MSZonging, LotShape, MasVnrType, BsmtExposure, HeatingQC, KitchenQual, FireplaceQu, GarageFinsh, SaleType and SaleCondition <b>show good shape resemblance or anti-similarity.</b></p>
     <p> This means these variables are of <b>good correlations with Saleprice.</b></p>
-<img src="\images\1.png">
 
