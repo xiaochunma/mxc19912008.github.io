@@ -40,10 +40,10 @@ This section is to find strong-related numeric variables amoung each other to he
 Of all numeric variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, 1stFlrSF, GrLiveArea, FullBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF and OpenPorchSF show strong co-relationship with saleprice, which is in accordance with our conclusion above.   
 Besides, because it is easy to judge the relationship of any two variables in this visualized correlation matrix, we can dig deeper to do feature engineering or something else interesting:)  
 <h5>3. Feature engineering, selection, modeling and prediction </h5> 
-<h7> Ruling out outliers</h7>
+<h6> Ruling out outliers</h6>
 Firstly, we drop outliers in the train data in case of imprecise prediction. To find outliers, we can make scatter plot with each numeric variable and saleprice, and find those extremely irregular ones. For example, in the GrLivArea variable, there are two obvious outliers when GrLivArea>4500, thus we can rule them out by setting GrLivArea<=4500, or drop out those that are bigger than 4500.   
 <img src="\images\GrLivArea_outliers.png">  
-<h7> Dealing with missing values </h7>
+<h6> Dealing with missing values </h6>
 Then, we need to combine train and test together using 'rbind' to uniformize factor levels in these two dataframe(be sure to give NAs to test$SalePrice), which will help us a lot when making predictions. By the way, it is also a good time to fill the missing values(except those in SalePrice of test). Here we can use 'mice' or 'rpart'. However, before this we need to decide the meanning of missing values, for example, missing values in "FireplaceQu" means no fireplace means no quality when we check those in "Fireplace", while "LotFrontage" misses its values maybe because of misses of records since a house should has its lot frontage. Below is how I deal with missing values with 'mice' and 'rpart' packages.  
 This gives an example of 'mice' imputation  
 <pre>
@@ -66,4 +66,4 @@ area.rpart <- rpart(GarageArea ~ .,
 
 full$GarageArea[is.na(full$GarageArea)] <- round(predict(area.rpart, full[is.na(full$GarageArea),col.pred]))
 </pre>
-<h7> Feature engineering and selection </h7>
+<h6> Feature engineering and selection </h6>
