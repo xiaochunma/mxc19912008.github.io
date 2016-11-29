@@ -5,8 +5,8 @@ h3:   "Description"
 date:   2016-11-24
 tech: HTML CSS JavaScript
 image: 'house-prices-up.jpg'
-ghsource: ''
-ghpages: ''
+ghsource: 'house-prices-advanced-regression-techniques'
+ghpages: 'house-prices-advanced-regression-techniques/data'
 image_1: '1.npg'
 
 ---
