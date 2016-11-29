@@ -11,4 +11,5 @@ image_1: '1.npg'
 
 ---
 Generally, newly built and newly remolded houses tend to be of higher quality(color) and sell better(Area).
+<img src="\images\1.png">
 
