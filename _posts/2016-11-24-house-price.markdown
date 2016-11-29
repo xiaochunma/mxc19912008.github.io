@@ -47,7 +47,7 @@ Firstly, we drop outliers in the train data in case of imprecise prediction. To 
 Then, we need to combine train and test together using 'rbind' to uniformize factor levels in these two dataframe(be sure to give NAs to test$SalePrice), which will help us a lot when making predictions. By the way, it is also a good time to fill the missing values(except those in SalePrice of test). Here we can use 'mice' or 'rpart'. However, before this we need to decide the meanning of missing values, for example, missing values in "FireplaceQu" means no fireplace means no quality when we check those in "Fireplace", while "LotFrontage" misses its values maybe because of misses of records since a house should has its lot frontage. Below is how I deal with missing values with 'mice' and 'rpart' packages.  
 This gives an example of 'mice' imputation  
 <pre>
-#Selecting the variables that need to be 'miced' #
+# Selecting the variables that need to be 'miced' #
 namenacol <-c('LotFrontage', 'MasVnrType', 'MasVnrArea', 'MSZoning', 'Utilities' , 'BsmtFullBath', 'BsmtHalfBath'   , 'Functional', 'Exterior1st', 'Exterior2nd' , 'BsmtFinSF1', 'BsmtFinSF2', 'BsmtUnfSF', 'TotalBsmtSF', 'Electrical', 'KitchenQual', 'GarageCars', 'GarageArea', 'SaleType')   
 full_m <- full[namenacol]  
 # Do mice  #  
@@ -55,6 +55,8 @@ require(mice)
 imp.full <- mice(full_m, m=1, method='cart', printFlag=FALSE)  
 full_imp <- complete(imp.full)  
 </pre>
+<img src="\images\Lot area.png">   
+The imputed data (in red) appear to have a similar relationship to LotArea as the actual data (in blue), which means a good fit.  
 This gives an example of 'rpart' imputation  
 <pre>
 area.rpart <- rpart(GarageArea ~ .,
@@ -64,3 +66,4 @@ area.rpart <- rpart(GarageArea ~ .,
 
 full$GarageArea[is.na(full$GarageArea)] <- round(predict(area.rpart, full[is.na(full$GarageArea),col.pred]))
 </pre>
+<h7> Feature engineering and selection </h7>
