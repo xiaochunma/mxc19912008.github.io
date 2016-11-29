@@ -96,3 +96,57 @@ full_ss <- apply(full_s, 2, function(x) scale(x))
 # Dummized all the character variables  
 dummy_full <- model.matrix(~MSSubClass+LotFrontage+MasVnrArea+BsmtFinSF1+BsmtFinSF2+BsmtUnfSF+TotalBsmtSF+BsmtFullBath+BsmtHalfBath+GarageCars+GarageArea+subtractYearBuilt+subtractYearRemodAdd+subtractYrSold+totalbath+LotArea+OverallQual+OverallCond+YearBuilt+YearRemodAdd+X1stFlrSF+X2ndFlrSF+LowQualFinSF+GrLivArea+FullBath+HalfBath+BedroomAbvGr+KitchenAbvGr+TotRmsAbvGrd+Fireplaces+WoodDeckSF+OpenPorchSF+EnclosedPorch+X3SsnPorch+ScreenPorch+PoolArea+MiscVal+MoSold+YrSold+SalePrice+FloorArea+AllLivArea+OverallRate+totalPorchArea+MSZoning+Street+Alley+LotShape+LandContour+Utilities+LotConfig+LandSlope+Neighborhood+Condition1+Condition2+BldgType+HouseStyle+RoofStyle+RoofMatl+Exterior1st+Exterior2nd+MasVnrType+ExterQual+ExterCond+Foundation+BsmtQual+BsmtCond+BsmtExposure+BsmtFinType1+BsmtFinType2+Heating+HeatingQC+CentralAir+Electrical+KitchenQual+Functional+FireplaceQu+GarageType+GarageYrBlt+GarageFinish+GarageQual+GarageCond+PavedDrive+PoolQC+Fence+MiscFeature+SaleType+SaleCondition+SeasonSold-1,full_noid)
 </pre>  
+Let's do <b>randomForest</b>  
+<pre>
+require(randomForest)  
+rf <- randomForest(SalePrice~.,train_1,do.trace=TRUE)  
+prf <- predict(rf,test_1)</pre>  
+For <b>Xgboost and Lasso</b>, we use caret package to do 'scale' and 'dummy' for us.  
+<pre>
+# take log for SalePrice to make it more normal
+train$SalePrice <- log(label_df$SalePrice)
+library(caret)
+library(plyr)
+library(xgboost)
+library(Metrics)
+library(glmnet)
+# Create custom summary function in proper format for caret
+custom_summary <- function(data, lev = NULL, model = NULL){
+        out = rmsle(data[, "obs"], data[, "pred"])
+        names(out) = c("rmse")
+        out
+}
+
+# Create control object
+control <- trainControl(method = "cv",  # Use cross validation
+                       number = 5,     # 5-folds
+                       summaryFunction = custom_summary                      
+)
+set.seed(12)
+# Lasso
+fit.glmnet <- train(SalePrice~., 
+                    data=train, 
+                    method="glmnet", 
+                    metric="RMSE", 
+                    preProc=c("center", "scale"), 
+                    #tuneGrid = expand.grid(.alpha=c(0.008,0.01,0.03),.lambda=c(65500,65600,65700)),
+                    trControl=control,
+                    maximize = FALSE)
+print(fit.glmnet)
+pl<- predict(fit.glmnet, test)
+epl <- exp(pl)
+
+grid = expand.grid(nrounds=c(100, 200, 400, 800), # Test 4 values for boosting rounds
+                   max_depth= c(4, 6),           # Test 2 values for tree depth
+                   eta=c(0.1, 0.05, 0.025),      # Test 3 values for learning rate
+                   gamma= c(0.1), 
+                   colsample_bytree = c(1), 
+                   min_child_weight = c(1),
+                   subsample =0.5 )
+set.seed(12)
+xgb_tree_model =  train(SalePrice~., data=train, method="xgbTree", trControl=control,  tuneGrid=grid, metric="rmse", maximize = FALSE) 
+px<- predict(xgb_tree_model, test)
+epx <- exp(px)
+# take average of these three models
+ept <- (epx+epl+prf)/3
+</pre> 
