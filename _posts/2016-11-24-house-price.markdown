@@ -15,7 +15,7 @@ The dataset was compiled by Dean De Cock for use in data science education.
 This project is based on two datasets of train and test. The train dataset is of 1460 items with 80 variables and one especially important one of saleprice, and we want to make prediction on saleprice of test dataset.  
 Following is a short exhibition of my work on visualization.  
 <h5>1. Correlation visualization with R packages(tabplots)_inspired by Laurae@Kaggle</h5>  
-This part aims to find strong-related variables amoung 80 variables to Saleprice which further help us do feature selection and engineering.  
+This part aims to find strong-related variables amoung 80 variables to Saleprice which further help us do feature selection and engineering.  This was drew with R package(tabplots), and the following set of pictures show the number and range of values for each variable as well as the covariance among the variables, both numeric and characters.
     <img src="\images\1.png">
     <img src="\images\2.png">
     <img src="\images\3.png">
