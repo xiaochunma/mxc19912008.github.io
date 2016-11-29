@@ -35,4 +35,7 @@ This part aims to find strong-related variables amoung 80 variables to Saleprice
     Of all variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, BsmtFullBath, (X)1stFlrSF, GrLiveArea, FullBath, HalfBath, TotRmsAbvGrd, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF, OpenPorchSF, MSZonging, LotShape, MasVnrType, BsmtExposure, HeatingQC, KitchenQual, FireplaceQu, GarageFinsh, SaleType and SaleCondition <b>show good shape resemblance or anti-similarity.</b>  
     This means these variables are of <b>good correlations with Saleprice.</b>  
 <h5>2. Correlation visualization with R packages(ggplot2)</h5> 
-This section is to find strong-related numeric variables amoung each other to help us assure feature selection and better relate highly related variables for feature engineering.
+This section is to find strong-related numeric variables amoung each other to help us assure feature selection and better relate highly related variables for feature engineering.  
+<img src="\images\cor-10-1.png">
+Of all numeric variables(ggplot2 limitation), OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, 1stFlrSF, GrLiveArea, FullBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF and OpenPorchSF show strong relationship with saleprice, which is in accordance with our conclusion above.   
+Besides, in this picture, because it is easy to judge the relationship of any two variables in this "visual matrix", we can dig deeper to do feature engineering or something else interesting:)  
