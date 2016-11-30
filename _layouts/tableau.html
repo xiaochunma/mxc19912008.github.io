@@ -3,63 +3,15 @@ layout: default
 ---
 <link rel="stylesheet" href="{{ site.baseurl }}/foundation-6/css/foundation.min.css">
 <div class="post">
-
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
-    <p> </p>
-    <p> </p>
-    <p> </p>
-    <h3 class="post-h3">{{ page.h3 }}</h3></header>
-    <p>This is a house price prediction project on <a href=" https://www.kaggle.com/c/house-prices-advanced-regression-techniques">Kaggle</a>. </p>
-    <p>This dataset was compiled by Dean De Cock for use in data science education. </p>
-    <p>This project is based on two datasets of <a href=" https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data">train and test</a>. The train dataset is of 1460 items with 80 variables and one especially important one of saleprice, and we want to make prediction on saleprice of test dataset.</p> 
-    <p>Following is a short exhibition of my work on visualization.</p>
-    <p><b>1. Correlation visualization with R packages(tabplots)_inspired by Laurae@Kaggle</b></p>
-    <p>
-    <img src="\images\1.png">
-    <img src="\images\2.png">
-    <img src="\images\3.png">
-    <img src="\images\4.png">
-    <img src="\images\5.png">
-    <img src="\images\6.png">
-    <img src="\images\7.png">
-    <img src="\images\8.png">
-    <img src="\images\9.png">
-    <img src="\images\10.png">
-    <img src="\images\11.png">
-    <img src="\images\12.png">
-    <img src="\images\13.png">
-    <img src="\images\14.png">
-    <img src="\images\15.png">
-    <img src="\images\16.png">
-    </p>
-    <p> Of all variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, BsmtFullBath, (X)1stFlrSF, GrLiveArea, FullBath, HalfBath, TotRmsAbvGrd, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF, OpenPorchSF, MSZonging, LotShape, MasVnrType, BsmtExposure, HeatingQC, KitchenQual, FireplaceQu, GarageFinsh, SaleType and SaleCondition <b>show good shape resemblance or anti-similarity.</b></p>
-    <p> This means these variables are of <b>good correlations with Saleprice.</b></p>
-    <p><b>2. Correlation visualization with R packages(ggplot2)</b></p>
-    <img src="\images\cor-10-1.png">
-    <p>Of all numeric variables(ggplot2 limitation), OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, 1stFlrSF, GrLiveArea, FullBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF and OpenPorchSF show strong relationship with saleprice, which is in accordance with our conclusion above. </p>
-    <p>Besides, in this picture, because it is easy to judge the relationship of any two variables in this "visual matrix", we can dig deeper to do feature engineering or something else interesting:)
     
-    
-    <p class="meta">
-    </p>
-
-
   <div class='tableauPlaceholder' id='viz1480174884856' style='position: relative'><noscript><a href='#'><img alt='Does newly built or  remodeled houses sell better? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;T2&#47;T2JTQ76C8&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='path' value='shared&#47;T2JTQ76C8' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;T2&#47;T2JTQ76C8&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1480174884856');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
   <div class="row">
     </div>
   </div>
-
-  <div class="row">
-    <div class="small-12 medium-4 columns">
-      {% if page.ghpages %} <a href="{{ page.ghpages }}">{% endif %}
-      {% if page.ghpages %} </a>{% endif %}
-    </div>
-
+  
     <div class="large-12 medium-4 columns">
-      <article class="post-content">
-        {{ content }}
-      </article>
       <div class='tableauPlaceholder' id='viz1480349485207' style='position: relative'><noscript><a href='#'><img alt='Which Season should you sell your house? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;J5&#47;J5P5224B4&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='path' value='shared&#47;J5P5224B4' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;J5&#47;J5P5224B4&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1480349485207');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
     </div>
   </div>
