@@ -13,7 +13,8 @@ image_1: '1.npg'
 This is a house price prediction project on Kaggle.  
 The dataset was compiled by Dean De Cock for use in data science education.  
 This project is based on two datasets of train and test. The train dataset is of 1460 items with 80 variables and one especially important one of saleprice, and we want to make prediction on saleprice of test dataset.  
-Following is a short exhibition of my work on visualization.  
+Following is a short exhibition of my work.  
+  
 <a href="#1">1. Correlation visualization with R packages(tabplots)</a>  
 <a href="#2">2. Correlation visualization with R packages(corrplot, ggplot2)</a>   
 <a href="#3">3. Feature engineering, selection, modeling and prediction</a>   
