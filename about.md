@@ -17,5 +17,6 @@ Some of the technologies I'm familar with:
 * Matlab
 * Java
 * SPSS
+* HTML
 * Tableau
 * MS Office Suite
