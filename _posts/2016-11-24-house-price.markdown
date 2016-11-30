@@ -6,7 +6,7 @@ date:   2016-11-24
 tech: R Python Tableau Excel
 image: 'house-prices-up.jpg'
 ghsource: 'house-prices-advanced-regression-techniques'
-ghpages: 'test'
+ghpages: 'test/'
 
 ---
 This is a house price prediction project on Kaggle.  
