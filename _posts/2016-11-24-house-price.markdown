@@ -5,11 +5,11 @@ h3:   "Description"
 date:   2016-11-24
 tech: R Python Tableau Excel
 image: 'house-prices-up.jpg'
-ghsource: 'mxc19912008/test/'
-ghpages: 'test/'
+ghsource: 'house-prices-advanced-regression-techniques'
+ghpages: 'house-prices-advanced-regression-techniques/data'
 
 ---
-This is a house price prediction project on Kaggle.  
+This is a house price prediction program on Kaggle.  
 The dataset was compiled by Dean De Cock for use in data science education.  
 This project is based on two datasets of train and test. The train dataset is of 1460 items with 80 variables and one especially important one of saleprice, and we want to make prediction on saleprice of test dataset.  
 Following is a short exhibition of my work.  
