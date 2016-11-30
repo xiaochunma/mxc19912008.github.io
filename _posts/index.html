@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<link rel="stylesheet" href="foundation-6/css/foundation.min.css">
+<script src="foundation-6/js/jquery.min.js"></script>
+<script src="foundation-6/js/foundation.min.js"></script>
+<script>$(document).foundation();</script>
+
+<h1 class="">Exhibition</h1>
+<p></p>
+
+<div class="primary">
+  <div class="row small-up-2 medium-up-3 large-up-4">
+    <ul class="post-list">
+      {% for post in site.posts %}
+        <div class="column">
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+            <img class="thumbnail" src="{{ post.image | prepend: site.images }}">
+            <h5>{{ post.title }}</h5>
+          </a>
+        </div>
+
+      {% endfor %}
+    </ul>
+  </div>
+
+</div>
