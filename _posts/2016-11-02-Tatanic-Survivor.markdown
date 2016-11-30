@@ -20,15 +20,13 @@ This project is based on two datasets of train and test. The train dataset is of
 
 Following is an exhibition of my work.  
   
-<a href="#1">1. Correlation visualization with R packages</a>  
-<a href="#2">2. Correlation visualization with R packages(corrplot, ggplot2)</a>   
-<a href="#3">3. Feature engineering, all kinds of modeling and predictions</a>   
+<a href="#1">1. Feature engineering, all kinds of modeling and predictions</a>  
+<a href="#2">2. Visualization to show who are survivors</a>    
+
 
 <a name="1"> </a>  
-<h5>1. Correlation visualization with R packages(tabplots) </h5>    
-<a name="3"> </a>
-<h5>3. Feature engineering, different kinds of modeling and predictions </h5>    
-About data cleanning and feature engineering, currently I am doing no better than an excellent <a href="https://www.kaggle.com/mrisdal/titanic/exploring-survival-on-the-titanic"> tutorial </a>   
+<h5>1. Feature engineering, different kinds of modeling and predictions </h5>    
+About data cleanning and feature engineering, currently I am doing no better than an excellent <a href="https://www.kaggle.com/mrisdal/titanic/exploring-survival-on-the-titanic"> tutorial </a>.   
 My exhibition focus on how to build different models and their prediction scores on Kaggle public leaderboard. Here I tried four types of models that are commonly used for classification:Lasso, randomForest, SVM and Xgboost. Amoung them, Lasso showed the  highest score.
 <pre>  
 # Lasso score =  0.80383
@@ -83,3 +81,10 @@ Prediction_XGB <- predict(fit.XGB, test, OOB=TRUE)
 submit <- data.frame(PassengerId = test$PassengerId, Survived = Prediction_XGB)
 write.csv(submit, file = "XGB.csv", row.names = FALSE)  
 </pre>  
+<a name="2"> </a>  
+<h5>2. Visualization to show who are survivors </h5>  
+To better explain those who have bigger chances to survive, I made these pictures.
+<img src="\images\Age.jpg">  
+<img src="\images\Sex.jpg">
+<img src="\images\Pclass.jpg">
+<img src="\images\Family Size.jpg">
