@@ -5,7 +5,7 @@ h3:   "Description"
 date:   2016-11-24
 tech: R Python Tableau Excel
 image: 'house-prices-up.jpg'
-ghsource: 'house-prices-advanced-regression-techniques'
+ghsource: 'mxc19912008/test/'
 ghpages: 'test/'
 
 ---
