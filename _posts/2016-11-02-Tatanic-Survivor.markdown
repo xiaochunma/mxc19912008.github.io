@@ -25,8 +25,11 @@ Following is an exhibition of my work.
 <a href="#3">3. Feature engineering, all kinds of modeling and predictions</a>   
 
 <a name="1"> </a>  
-<h5>1. Correlation visualization with R packages(tabplots)_inspired by Laurae@Kaggle</h5>    
-<a href="#3">3. Feature engineering, different kinds of modeling and predictions</a>   
+<h5>1. Correlation visualization with R packages(tabplots) </h5>    
+<a name="3"> </a>
+<h5>3. Feature engineering, different kinds of modeling and predictions </h5>    
+About data cleanning and feature engineering, currently I am doing no better than an excellent <a href="https://www.kaggle.com/mrisdal/titanic/exploring-survival-on-the-titanic"> tutorial </a>   
+My exhibition focus on how to build different models and their prediction scores on Kaggle public leaderboard. Here I tried four types of models that are commonly used for classification:Lasso, randomForest, SVM and Xgboost. Amoung them, Lasso showed the  highest score.
 <pre>  
 # Lasso score =  0.80383
 set.seed(12)
