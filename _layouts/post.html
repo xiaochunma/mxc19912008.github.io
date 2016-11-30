@@ -8,7 +8,7 @@ layout: default
     <h1 class="post-title">{{ page.title }}</h1>
     <p>
       <a href="{{ page.ghsource | prepend: 'https://www.kaggle.com/c/' }}"> View project on Kaggle </a>
-      {% if page.ghpages %} <a href="https://www.kaggle.com/c/{{ page.ghpages }}">| View data on Kaggle</a> {% endif %}
+      {% if page.ghpages %} <a href="https://mxc19912008.github.io/{{ page.ghpages }}">| View data on Kaggle</a> {% endif %}
       {% if page.outlink %} <a href="{{ page.outlink }}">| View live site</a> {% endif %}
     </p>
     <p class="meta">
@@ -19,3 +19,4 @@ layout: default
       <article class="post-content">
         {{ content }}
       </article>
+
