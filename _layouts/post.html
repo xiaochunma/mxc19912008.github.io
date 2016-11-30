@@ -7,8 +7,8 @@ layout: default
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
     <p>
-      <a href="{{ page.ghsource | prepend: 'http://github.com/' }}"> View source on GitHub </a>
-      {% if page.ghpages %} <a href="https://mxc19912008.github.io/{{ page.ghpages }}">| View data on Kaggle</a> {% endif %}
+      <a href="{{ page.ghsource | prepend: 'https://www.kaggle.com/c/' }}"> View program on Kaggle </a>
+      {% if page.ghpages %} <a href="https://www.kaggle.com/c/{{ page.ghpages }}">| View data on Kaggle</a> {% endif %}
       {% if page.outlink %} <a href="{{ page.outlink }}">| View live site</a> {% endif %}
     </p>
     <p class="meta">
