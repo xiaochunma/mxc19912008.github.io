@@ -17,7 +17,7 @@ Following is a short exhibition of my work.
 <a href="#1">1. Correlation visualization with R packages(tabplots)</a>  
 <a href="#2">2. Correlation visualization with R packages(corrplot, ggplot2)</a>   
 <a href="#3">3. Feature engineering, selection, modeling and prediction</a>   
-<a href="http://mxc19912008.github.io/house-price"> 4. Interesting interactive visualization using Tableau </a>  
+<a href="https://public.tableau.com/profile/xiaochun.ma#!/"> 4. Interesting interactive visualization using Tableau </a>  
 
   
     
