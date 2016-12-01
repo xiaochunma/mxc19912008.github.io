@@ -2,7 +2,7 @@
 layout: post
 title:  "Tatanic Survivor"
 date:   2016-11-02
-tech:   R Excel
+tech:   Using R and Tableau
 image: 'Tatanic.jpg'
 ghsource: 'titanic'
 ghpages: 'titanic/data'
@@ -86,5 +86,5 @@ write.csv(submit, file = "XGB.csv", row.names = FALSE)
 To better explain those who have bigger chances to survive, I made these pictures.
 <img src="\images\Age.jpg">  
 <img src="\images\Sex.jpg">
-<img src="\images\Pclass.jpg">
+<img src="\images\Economic.jpg">
 <img src="\images\Family Size.jpg">
