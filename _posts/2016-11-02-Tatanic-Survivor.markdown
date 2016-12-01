@@ -2,7 +2,7 @@
 layout: post
 title:  "Tatanic Survivor"
 date:   2016-11-02
-tech:   Using R and Tableau
+tech:  Using R and Tableau
 image: 'Tatanic.jpg'
 ghsource: 'titanic'
 ghpages: 'titanic/data'
@@ -27,9 +27,9 @@ Following is an exhibition of my work.
 <a name="1"> </a>  
 <h5>1. Feature engineering, different kinds of modeling and predictions </h5>    
 About data cleanning and feature engineering, currently I am doing no better than an excellent <a href="https://www.kaggle.com/mrisdal/titanic/exploring-survival-on-the-titanic"> tutorial </a>.   
-My exhibition focus on how to build different models and their prediction scores on Kaggle public leaderboard. Here I tried four types of models that are commonly used for classification:Lasso, randomForest, SVM and Xgboost. Amoung them, Lasso showed the  highest score.
+My exhibition focus on how to build different models and their prediction scores on Kaggle public leaderboard. Here I tried four types of models that are commonly used for classification:Lasso, randomForest, SVM and Xgboost. Among them, Lasso showed the  highest score.
 <pre>  
-# Lasso score =  0.80383
+<b># Lasso score =  0.80383</b>
 set.seed(12)
 fit.glmnet <- train(Survived~Pclass + Sex + Age + SibSp + Parch + Fare +
                             Embarked + Title + FamilySize + FamilyID, 
@@ -42,7 +42,7 @@ submit <- data.frame(PassengerId = test$PassengerId, Survived = Prediction_l)
 write.csv(submit, file = "Lasso.csv", row.names = FALSE)
 </pre>  
 <pre> 
-# randomForest score = 0.77512
+<b># randomForest score = 0.77512 </b>
 
 fit.rf <- train(Survived~Pclass + Sex + Age + SibSp + Parch + Fare +
                             Embarked + Title + FamilySize + FamilyID, 
@@ -56,7 +56,7 @@ submit <- data.frame(PassengerId = test$PassengerId, Survived = Prediction_rf)
 write.csv(submit, file = "RandomForest.csv", row.names = FALSE)
 </pre>  
 <pre> 
-# SVM Score = 0.69378
+<b># SVM Score = 0.69378</b>
 
 fit.SVM <- train(Survived~Pclass + Sex + Age + SibSp + Parch + Fare +
                             Embarked + Title + FamilySize + FamilyID, 
@@ -69,7 +69,7 @@ submit <- data.frame(PassengerId = test$PassengerId, Survived = Prediction_SVM)
 write.csv(submit, file = "SVM.csv", row.names = FALSE)
 </pre>  
 <pre> 
-# Xgboost Score = 0.77033
+<b># Xgboost Score = 0.77033</b>
 
 fit.XGB <- train(Survived~Pclass + Sex + Age + SibSp + Parch + Fare +
                          Embarked + Title + FamilySize + FamilyID, 
@@ -84,7 +84,7 @@ write.csv(submit, file = "XGB.csv", row.names = FALSE)
 <a name="2"> </a>  
 <h5>2. Visualization to show who are survivors </h5>  
 To better explain those who have bigger chances to survive, I made these pictures.
-<img src="\images\Age.jpg">  
 <img src="\images\Sex.jpg">
-<img src="\images\Economic.jpg">
-<img src="\images\Family Size.jpg">
+<img src="\images\Age.jpg">
+<img src="\images\Economic.jpg"><img src="\images\Family Size.jpg">
+
