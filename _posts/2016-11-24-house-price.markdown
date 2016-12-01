@@ -29,9 +29,9 @@ Following is a short exhibition of my work.
 
 This part aims to find strong-related variables to "Saleprice" amoung 80 variables, which would further help us do feature selection and engineering.  All these pictures was drew with R package(tabplots) to show the number and range of values for each variable as well as the covariance among the variables(both numeric and characters), sepecially with log_saleprice(here I use log of saleprice because we need to make saleprice normal which was origionally skew), which was on the right of every row.
     <img src="\images\1.png">  
-    <b>Strongly related : OverallQual.</b>     
-      
-    <img src="\images\2.png">
+    <b>Strongly related : OverallQual.</b>  
+       
+    <img src="\images\2.png">  
     <b>Strongly related : YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1.</b>   
       
     <img src="\images\3.png">
