@@ -27,7 +27,7 @@ Following is a short exhibition of my work.
 <h5>1. Correlation visualization with R packages(tabplots)_inspired by Laurae@Kaggle</h5>    
 <a href="#top" target="_self">Back to top</a>    
 
-This part aims to find strong-related variables to "Saleprice" amoung 80 variables, which would further help us do feature selection and engineering.  All these pictures was drew with R package(tabplots) to show the number and range of values for each variable as well as the covariance among the variables(both numeric and characters), sepecially with log_saleprice(here I use log of saleprice because we need to make saleprice normal which was origionally skew), which was on the right of every row.  
+This part aims to find strong-related variables to "Saleprice" amoung 80 variables, which would further help us do feature selection and engineering.  All these pictures was drew with R package(tabplots) to show the number and range of values for each variable as well as the covariance among the variables(both numeric and characters), sepecially with log_saleprice(here I use log of saleprice because we need to make saleprice normal which was origionally skew), which was on the right of every row as reference.  
   
 <img src="\images\1.png">  
 <b>Strongly related : OverallQual.</b>  
@@ -77,17 +77,17 @@ This part aims to find strong-related variables to "Saleprice" amoung 80 variabl
 <img src="\images\16.png">  
 <b>Strongly related : None.</b>     
       
-Of all variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, BsmtFullBath, (X)1stFlrSF, GrLiveArea, FullBath, HalfBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF, OpenPorchSF, MSZonging, LotShape, MasVnrType,ExterQual, Foundation, BsmtQual, BsmtExposure, HeatingQC, KitchenQual, FireplaceQu, GarageType, GarageFinsh <b>show good shape resemblance or anti-similarity.</b>  
+Of all variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, BsmtFullBath, (X)1stFlrSF, GrLiveArea, FullBath, HalfBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF, OpenPorchSF, MSZonging, LotShape, MasVnrType,ExterQual, Foundation, BsmtQual, BsmtExposure, HeatingQC, KitchenQual, FireplaceQu, GarageType, GarageFinsh <b>show good shape resemblance or invert-similarity.</b>  
   
-This means these variables are of <b>good correlations with Saleprice.</b>  
+This means these variables are of <b>good correlations to "Saleprice".</b>  
       
         
 <a name="2"> </a>  
 <h5>2. Correlation visualization with R packages(corrplot, ggplot2)</h5>   
 <a href="#top" target="_self">Back to top</a>    
-This section is to find strong-related numeric variables amoung each other to help us assure feature selection and better relate highly related variables for feature engineering.  
-<img src="\images\cor-10-1.png">
-Of all numeric variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, 1stFlrSF, GrLiveArea, FullBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF and OpenPorchSF show strong co-relationship with saleprice, which is in accordance with our conclusion above.   
+This section is to find strong-related numeric variables to help us assure feature selection and better relate highly related variables for feature engineering.  
+<img src="\images\cor-10-1.png">  
+Of all numeric variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, 1stFlrSF, GrLiveArea, FullBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF and OpenPorchSF show strong correlation with saleprice, which is in accordance with our conclusion above.   
   
 Besides, because it is easy to judge the relationship of any two variables in this visualized correlation matrix, we can dig deeper to do feature engineering or something else interesting:)  
 
@@ -97,10 +97,12 @@ Besides, because it is easy to judge the relationship of any two variables in th
 <h5>3. Feature engineering, selection, modeling and prediction </h5>   
 <a href="#top" target="_self">Back to top</a>    
 <b> Ruling out outliers</b>  
-Firstly, we drop outliers in the train data in case of imprecise prediction. To find outliers, we can make scatter plot with each numeric variable and saleprice, and find those extremely irregular ones. For example, in the GrLivArea variable, there are two obvious outliers when GrLivArea>4500, thus we can rule them out by setting GrLivArea<=4500, or drop out those that are bigger than 4500.   
+Firstly, we drop outliers in the train dataset to prevent imprecise prediction. To find outliers, we can make scatter plot with each numeric variable to "Saleprice", and find those extremely irregular ones. For example, in the GrLivArea variable, there are two obvious outliers when GrLivArea>4500, thus we can rule them out by setting GrLivArea<=4500, or drop out those that are bigger than 4500.   
 <img src="\images\GrLivArea_outliers.png">  
 <b> Dealing with missing values </b>  
-Then, we need to combine train and test together using 'rbind' to uniformize factor levels in these two dataframe(be sure to give NAs to test$SalePrice), which will help us a lot when making predictions. By the way, it is also a good time to fill the missing values(except those in SalePrice of test). Here we can use 'mice' or 'rpart'. However, before this we need to decide the meanning of missing values, for example, missing values in "FireplaceQu" means no fireplace means no quality when we check those in "Fireplace", while "LotFrontage" misses its values maybe because of misses of records since a house should has its lot frontage. Below is how I deal with missing values with 'mice' and 'rpart' packages.  
+Then, we need to combine train and test dataset together using 'rbind' to uniformize factor levels in these two dataframe(be sure to give NAs to test$SalePrice), which will help us a lot when making predictions.   
+  
+By the way, it is a good time to fill the missing values(except those in SalePrice of test). Here we can use 'mice' or 'rpart'. However, before execution we need to figur out the meanning of missing values, for example, missing values in "FireplaceQu" means "no fireplace = no quality" when we check those in "Fireplace", while "LotFrontage" missings is probably due to missings of records since a house should has its lot frontage. After figure these out, Let's do missings imputation. Below is how I deal with missing values with 'mice' and 'rpart' packages.  
   
 This gives an example of 'mice' imputation  
 <pre>
@@ -113,7 +115,7 @@ imp.full <- mice(full_m, m=1, method='cart', printFlag=FALSE)
 full_imp <- complete(imp.full)  
 </pre>
 <img src="\images\Lot area.png">   
-The imputed data (in red) appear to have a similar relationship to LotArea as the actual data (in blue), which means a good fit.  
+The imputed data (in red) appear to have a similar relationship to LotArea as the actual data (in blue), which means a good fit.    
 This gives an example of 'rpart' imputation  
 <pre>
 area.rpart <- rpart(GarageArea ~ .,
@@ -124,7 +126,9 @@ area.rpart <- rpart(GarageArea ~ .,
 full$GarageArea[is.na(full$GarageArea)] <- round(predict(area.rpart, full[is.na(full$GarageArea),col.pred]))
 </pre>
 <b> Feature engineering and selection </b>  
-Let's do some feature engineering.  
+  
+Let's do some feature engineering. Note the # denotation.
+  
 <pre># Add up area of 1st floor and 2nd floor to get total floor area.  
 full$FloorArea <- full$X1stFlrSF+full$X2ndFlrSF  
 # Add up area of 1st floor, 2nd floor, low quality finshed area and above ground living area to get total living area.  
@@ -133,6 +137,7 @@ full$AllLivArea <- full$X1stFlrSF+full$X2ndFlrSF+full$LowQualFinSF+full$GrLivAre
 full$totalbath <- full$BsmtFullBath+0.5*full$BsmtHalfBath+full$FullBath+0.5*full$HalfBath  
 # Add up all the porch area to get total porch area.  
 full$totalPorchArea <- full$OpenPorchSF+full$EnclosedPorch+full$X3SsnPorch+full$ScreenPorch  </pre>  
+  
 Next, we want to give 'Ex', 'Gd', 'TA','Fa','Po' values for better modeling. This is easier with the map in Python, thus we use write.csv function to store current data for python.
 <pre>qual_score = {None: 0, "Po": 1, "Fa": 2, "TA": 3, "Gd": 4, "Ex": 5}  
 full["ExterQual"] = full["ExterQual"].map(qual_score).astype(int)...</pre>  
@@ -144,7 +149,7 @@ And the results are similar.
 <b> Model building </b>     
 After we finished feature engineering and selection, we get rid of Id, which is of no use, and then the train and test data finally are to be divided.  
 For randomForest: we firstly scale the numeric variables and then dummized the character(factor) variables.  
-<pre> # get rid of Id
+<pre> # get rid of Id, which is nothing but noise.
 full_noid <- full[,-1]  
  # get the names of numeric variables (There is an easier way using sapply function)
 numnames <-  c('MSSubClass','LotArea','OverallQual','OverallCond','YearBuilt','YearRemodAdd','X1stFlrSF','X2ndFlrSF','LowQualFinSF','GrLivArea','FullBath','HalfBath','BedroomAbvGr','KitchenAbvGr','TotRmsAbvGrd','Fireplaces','WoodDeckSF','OpenPorchSF','EnclosedPorch','X3SsnPorch','ScreenPorch','PoolArea','MiscVal','MoSold','YrSold','FloorArea','AllLivArea','OverallRate','totalPorchArea','LotFrontage','MasVnrArea','BsmtFinSF1','BsmtFinSF2','BsmtUnfSF','TotalBsmtSF','BsmtFullBath','BsmtHalfBath','GarageCars','GarageArea','subtractYearBuilt','subtractYearRemodAdd','subtractYrSold','totalbath')  
@@ -152,14 +157,16 @@ full_s <- full_noid[numnames]
 # Scale all the numeric data except saleprice  
 full_ss <- apply(full_s, 2, function(x) scale(x))  
 # Dummized all the character variables  
-dummy_full <- model.matrix(~MSSubClass+LotFrontage+MasVnrArea+BsmtFinSF1+BsmtFinSF2+BsmtUnfSF+TotalBsmtSF+BsmtFullBath+BsmtHalfBath+GarageCars+GarageArea+subtractYearBuilt+subtractYearRemodAdd+subtractYrSold+totalbath+LotArea+OverallQual+OverallCond+YearBuilt+YearRemodAdd+X1stFlrSF+X2ndFlrSF+LowQualFinSF+GrLivArea+FullBath+HalfBath+BedroomAbvGr+KitchenAbvGr+TotRmsAbvGrd+Fireplaces+WoodDeckSF+OpenPorchSF+EnclosedPorch+X3SsnPorch+ScreenPorch+PoolArea+MiscVal+MoSold+YrSold+SalePrice+FloorArea+AllLivArea+OverallRate+totalPorchArea+MSZoning+Street+Alley+LotShape+LandContour+Utilities+LotConfig+LandSlope+Neighborhood+Condition1+Condition2+BldgType+HouseStyle+RoofStyle+RoofMatl+Exterior1st+Exterior2nd+MasVnrType+ExterQual+ExterCond+Foundation+BsmtQual+BsmtCond+BsmtExposure+BsmtFinType1+BsmtFinType2+Heating+HeatingQC+CentralAir+Electrical+KitchenQual+Functional+FireplaceQu+GarageType+GarageYrBlt+GarageFinish+GarageQual+GarageCond+PavedDrive+PoolQC+Fence+MiscFeature+SaleType+SaleCondition+SeasonSold-1,full_noid)
+dummy_full <- model.matrix(~MSSubClass+LotFrontage+MasVnrArea+BsmtFinSF1+BsmtFinSF2+BsmtUnfSF+TotalBsmtSF+BsmtFullBath+BsmtHalfBath+GarageCars+GarageArea+subtractYearBuilt+subtractYearRemodAdd+subtractYrSold+totalbath+LotArea+OverallQual+OverallCond+YearBuilt+YearRemodAdd+X1stFlrSF+X2ndFlrSF+LowQualFinSF+GrLivArea+FullBath+HalfBath+BedroomAbvGr+KitchenAbvGr+TotRmsAbvGrd+Fireplaces+WoodDeckSF+OpenPorchSF+EnclosedPorch+X3SsnPorch+ScreenPorch+PoolArea+MiscVal+MoSold+YrSold+SalePrice+FloorArea+AllLivArea+OverallRate+totalPorchArea+MSZoning+Street+Alley+LotShape+LandContour+Utilities+LotConfig+LandSlope+Neighborhood+Condition1+Condition2+BldgType+HouseStyle+RoofStyle+RoofMatl+Exterior1st+Exterior2nd+MasVnrType+ExterQual+ExterCond+Foundation+BsmtQual+BsmtCond+BsmtExposure+BsmtFinType1+BsmtFinType2+Heating+HeatingQC+CentralAir+Electrical+KitchenQual+Functional+FireplaceQu+GarageType+GarageYrBlt+GarageFinish+GarageQual+GarageCond+PavedDrive+PoolQC+Fence+MiscFeature+SaleType+SaleCondition+SeasonSold-1,full_noid)  
 </pre>  
+  
 Let's do <b>randomForest</b>  
 <pre>
 require(randomForest)  
 rf <- randomForest(SalePrice~.,train_1,do.trace=TRUE)  
 prf <- predict(rf,test_1)</pre>  
-For <b>Xgboost and Lasso</b>, we use caret package to do 'scale' and 'dummy' for us.  
+  
+For <b>Xgboost and Lasso</b>, we use 'caret' package to do 'scale' and 'dummy' for us.  
 <pre>
 # take log for SalePrice to make it more normal
 train$SalePrice <- log(label_df$SalePrice)
@@ -180,7 +187,8 @@ control <- trainControl(method = "cv",  # Use cross validation
                        number = 5,     # 5-folds
                        summaryFunction = custom_summary                      
 )
-set.seed(12)
+set.seed(12)  
+  
 # Lasso
 fit.glmnet <- train(SalePrice~., 
                     data=train, 
@@ -204,10 +212,14 @@ grid = expand.grid(nrounds=c(100, 200, 400, 800), # Test 4 values for boosting r
 set.seed(12)
 xgb_tree_model =  train(SalePrice~., data=train, method="xgbTree", trControl=control,  tuneGrid=grid, metric="rmse", maximize = FALSE) 
 px<- predict(xgb_tree_model, test)
-epx <- exp(px)
+epx <- exp(px)  
+  
 # take average of these three models
 ept <- (epx+epl+prf)/3
 </pre>  
+  
+     
 I got a score of 0.11975 on public leaderboard. There is a lot to be improved, for example, use more models.
 <img src="\images\score.jpg">  
+  
 <a href="#top" target="_self">Back to top</a>    
