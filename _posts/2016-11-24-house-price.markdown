@@ -30,37 +30,53 @@ Following is a short exhibition of my work.
 This part aims to find strong-related variables to "Saleprice" amoung 80 variables, which would further help us do feature selection and engineering.  All these pictures was drew with R package(tabplots) to show the number and range of values for each variable as well as the covariance among the variables(both numeric and characters), sepecially with log_saleprice(here I use log of saleprice because we need to make saleprice normal which was origionally skew), which was on the right of every row.
     <img src="\images\1.png">  
     <b>Strongly related : OverallQual.</b>     
+      
     <img src="\images\2.png">
     <b>Strongly related : YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1.</b>   
+      
     <img src="\images\3.png">
     <b>Strongly related : TotalBsmtSF, (X)1stFlrSF.</b>   
+      
     <img src="\images\4.png">
     <b>Strongly related : GrLiveArea, BsmtFullBath, FullBath.</b>   
+      
     <img src="\images\5.png">
     <b>Strongly related : HalfBath, TotRmsAbvGrd,  FirePlaces.</b>  
+      
     <img src="\images\6.png">
     <b>Strongly related : GarageYrBlt, GarageCars, GarageArea, WoodDeskSF, OpenPorchSF.</b>   
+      
     <img src="\images\7.png">
     <b>Strongly related : None.</b>    
+      
     <img src="\images\8.png">  
-    <b>Strongly related : MSZonging.LotShape.</b>   
+    <b>Strongly related : MSZonging.</b>   
+      
     <img src="\images\9.png">  
-    <b>Strongly related : None.</b>   
+    <b>Strongly related : LotShape.</b>   
+      
     <img src="\images\10.png">
-    <b>Strongly related : MasVnrType.</b>    
+    <b>Strongly related : None.</b>    
+      
     <img src="\images\11.png">
-    <b>Strongly related : LotShape.</b>    
+    <b>Strongly related : MasVnrType.</b>    
+      
     <img src="\images\12.png">
     <b>Strongly related : ExterQual, Foundation, BsmtQual.</b>      
+      
     <img src="\images\13.png">
     <b>Strongly related : BsmtExposure, HeatingQC.</b>      
+      
     <img src="\images\14.png">
     <b>Strongly related : KitchenQual, FireplaceQu.</b>      
+      
     <img src="\images\15.png">  
-    <b>Strongly related : GarageFinsh.</b>      
+    <b>Strongly related : GarageType, GarageFinsh.</b>      
+      
     <img src="\images\16.png">
     <b>Strongly related : None.</b>     
-    Of all variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, BsmtFullBath, (X)1stFlrSF, GrLiveArea, FullBath, HalfBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF, OpenPorchSF, MSZonging, LotShape, MasVnrType,ExterQual, Foundation, BsmtQual, BsmtExposure, HeatingQC, KitchenQual, FireplaceQu, GarageFinsh <b>show good shape resemblance or anti-similarity.</b>  
+      
+    Of all variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, BsmtFullBath, (X)1stFlrSF, GrLiveArea, FullBath, HalfBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF, OpenPorchSF, MSZonging, LotShape, MasVnrType,ExterQual, Foundation, BsmtQual, BsmtExposure, HeatingQC, KitchenQual, FireplaceQu, GarageType, GarageFinsh <b>show good shape resemblance or anti-similarity.</b>  
     This means these variables are of <b>good correlations with Saleprice.</b>  
       
         
