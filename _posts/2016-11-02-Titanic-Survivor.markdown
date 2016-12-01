@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Tatanic Survivor"
+title:  "Titanic Survivor"
 date:   2016-11-02
 tech:  Using R and Tableau
 image: 'Tatanic.jpg'
@@ -84,7 +84,15 @@ write.csv(submit, file = "XGB.csv", row.names = FALSE)
 <a name="2"> </a>  
 <h5>2. Visualization to show who are survivors </h5>  
 To better explain those who have bigger chances to survive, I made these pictures.
-<img src="\images\Sex.jpg">
-<img src="\images\Age.jpg">
-<img src="\images\Economic.jpg"><img src="\images\Family Size.jpg">
-
+<img src="\images\Sex.jpg">  
+<b>Interms of sexuality, most females survived while most males did not make it.</b>  , 
+<img src="\images\Age.jpg">  
+<b>Interms of age, individuals under 18 years old have more than 50% of chances to surivive, among which babies(who are 0-2 years old) are most likely to survive.</b>   
+<b>Individuals over 18 years old, or adults have less than 50% of chances to surivive, among which seniles(who are over 60 years old) are most unlikely to survive.</b>  
+<b>For youth(18-40 years old) and midlifes(41-60), they have similiar probability to live, which is around 43-44%.</b>  
+<img src="\images\Economic.jpg">  
+<b>Interms of economic status, for lower class individuals who are take up major part of all, they have only 24.2% chances to survive.</b>  
+<b>For for middle class individuals, they have 47.3% chances to live.</b>  
+<b>While for rich people, they are most likely to survive, which is up to 63.0%.
+<img src="\images\Family Size.jpg">
+<b>Interms of family size, middle sized families(4-6 people) have 47.3% chances to survive, big families(7-11 people) have only 16.0% to break out, while small families(2-3 people), including single individual(1 person), surprisingly have 38.9% chances to survive.</b>
