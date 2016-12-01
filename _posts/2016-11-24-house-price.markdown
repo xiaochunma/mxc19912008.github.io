@@ -89,8 +89,8 @@ This section is to find strong-related numeric variables to help us assure featu
 <img src="\images\cor-10-1.png">  
 Of all numeric variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, 1stFlrSF, GrLiveArea, FullBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF and OpenPorchSF show strong correlation with saleprice, which is in accordance with our conclusion above.   
   
-Besides, because it is easy to judge the relationship of any two variables in this visualized correlation matrix, we can dig deeper to do feature engineering or something else interesting:)  
-
+<b>Besides, because it is easy to judge the relationship of any two variables in this visualized correlation matrix, we can dig deeper to do feature engineering or something else interesting:)</b>    
+  
     
       
 <a name="3"> </a>  
@@ -124,7 +124,9 @@ area.rpart <- rpart(GarageArea ~ .,
                     na.action=na.omit)
 
 full$GarageArea[is.na(full$GarageArea)] <- round(predict(area.rpart, full[is.na(full$GarageArea),col.pred]))
-</pre>
+</pre>  
+  
+    
 <b> Feature engineering and selection </b>  
   
 Let's do some feature engineering. Note the # denotation.
@@ -141,6 +143,7 @@ full$totalPorchArea <- full$OpenPorchSF+full$EnclosedPorch+full$X3SsnPorch+full$
 Next, we want to give 'Ex', 'Gd', 'TA','Fa','Po' values for better modeling. This is easier with the map in Python, thus we use write.csv function to store current data for python.
 <pre>qual_score = {None: 0, "Po": 1, "Fa": 2, "TA": 3, "Gd": 4, "Ex": 5}  
 full["ExterQual"] = full["ExterQual"].map(qual_score).astype(int)...</pre>  
+  
 Now it's time to select features:  
 we can use features we selected using visualization, or we can also use 'Boruta' to do it.  
 <pre>boruta.train <- Boruta(SalePrice~., data = train_1, doTrace = 2)</pre>  
@@ -160,12 +163,14 @@ full_ss <- apply(full_s, 2, function(x) scale(x))
 dummy_full <- model.matrix(~MSSubClass+LotFrontage+MasVnrArea+BsmtFinSF1+BsmtFinSF2+BsmtUnfSF+TotalBsmtSF+BsmtFullBath+BsmtHalfBath+GarageCars+GarageArea+subtractYearBuilt+subtractYearRemodAdd+subtractYrSold+totalbath+LotArea+OverallQual+OverallCond+YearBuilt+YearRemodAdd+X1stFlrSF+X2ndFlrSF+LowQualFinSF+GrLivArea+FullBath+HalfBath+BedroomAbvGr+KitchenAbvGr+TotRmsAbvGrd+Fireplaces+WoodDeckSF+OpenPorchSF+EnclosedPorch+X3SsnPorch+ScreenPorch+PoolArea+MiscVal+MoSold+YrSold+SalePrice+FloorArea+AllLivArea+OverallRate+totalPorchArea+MSZoning+Street+Alley+LotShape+LandContour+Utilities+LotConfig+LandSlope+Neighborhood+Condition1+Condition2+BldgType+HouseStyle+RoofStyle+RoofMatl+Exterior1st+Exterior2nd+MasVnrType+ExterQual+ExterCond+Foundation+BsmtQual+BsmtCond+BsmtExposure+BsmtFinType1+BsmtFinType2+Heating+HeatingQC+CentralAir+Electrical+KitchenQual+Functional+FireplaceQu+GarageType+GarageYrBlt+GarageFinish+GarageQual+GarageCond+PavedDrive+PoolQC+Fence+MiscFeature+SaleType+SaleCondition+SeasonSold-1,full_noid)  
 </pre>  
   
+    
 Let's do <b>randomForest</b>  
 <pre>
 require(randomForest)  
 rf <- randomForest(SalePrice~.,train_1,do.trace=TRUE)  
 prf <- predict(rf,test_1)</pre>  
   
+    
 For <b>Xgboost and Lasso</b>, we use 'caret' package to do 'scale' and 'dummy' for us.  
 <pre>
 # take log for SalePrice to make it more normal
