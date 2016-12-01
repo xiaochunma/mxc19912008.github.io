@@ -3,7 +3,7 @@ layout: post
 title:  "House price"
 h3:   "Description"
 date:   2016-11-24
-tech: R Python Tableau Excel
+tech: Using R, Python and Tableau
 image: 'house-prices-up.jpg'
 ghsource: 'house-prices-advanced-regression-techniques'
 ghpages: 'house-prices-advanced-regression-techniques/data'
@@ -11,7 +11,7 @@ ghpages: 'house-prices-advanced-regression-techniques/data'
 ---
 This is a house price prediction program on Kaggle.  
 The dataset was compiled by Dean De Cock for use in data science education.  
-This project is based on two datasets of train and test. The train dataset is of 1460 items with 80 variables and one especially important one of saleprice, and we want to make prediction on saleprice of test dataset.  
+This project is based on two datasets of train and test. The train dataset is of 1460 items with 80 variables and one especially important one of "Saleprice", and we want to make prediction on saleprice of test dataset.  
 Following is a short exhibition of my work.  
   
 <a href="#1">1. Correlation visualization with R packages(tabplots)</a>  
@@ -27,24 +27,38 @@ Following is a short exhibition of my work.
 <h5>1. Correlation visualization with R packages(tabplots)_inspired by Laurae@Kaggle</h5>    
 <a href="#top" target="_self">Back to top</a>    
 
-This part aims to find strong-related variables amoung 80 variables to Saleprice which further help us do feature selection and engineering.  This was drew with R package(tabplots), and the following set of pictures show the number and range of values for each variable as well as the covariance among the variables(both numeric and characters), sepecially with log_saleprice, which was on the right of every row.
-    <img src="\images\1.png">
+This part aims to find strong-related variables to "Saleprice" amoung 80 variables, which would further help us do feature selection and engineering.  All these pictures was drew with R package(tabplots) to show the number and range of values for each variable as well as the covariance among the variables(both numeric and characters), sepecially with log_saleprice(here I use log of saleprice because we need to make saleprice normal which was origionally skew), which was on the right of every row.
+    <img src="\images\1.png">  
+    Strongly related : OverallQual.  
     <img src="\images\2.png">
+    Strongly related : YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1.  
     <img src="\images\3.png">
+    Strongly related : TotalBsmtSF, (X)1stFlrSF.  
     <img src="\images\4.png">
+    Strongly related : GrLiveArea, BsmtFullBath, FullBath.  
     <img src="\images\5.png">
+    Strongly related : HalfBath, TotRmsAbvGrd,  FirePlaces. 
     <img src="\images\6.png">
+    Strongly related : GarageYrBlt, GarageCars, GarageArea, WoodDeskSF, OpenPorchSF. 
     <img src="\images\7.png">
-    <img src="\images\8.png">
-    <img src="\images\9.png">
+    Strongly related : MSZonging. 
+    <img src="\images\8.png">  
+    Strongly related : LotShape. 
+    <img src="\images\9.png">  
+    Strongly related : None. 
     <img src="\images\10.png">
+    Strongly related : MasVnrType.  
     <img src="\images\11.png">
+    Strongly related : ExterQual, Foundation, BsmtQual.    
     <img src="\images\12.png">
+    Strongly related : BsmtExposure, HeatingQC.    
     <img src="\images\13.png">
+    Strongly related : KitchenQual, FireplaceQu.    
     <img src="\images\14.png">
+    Strongly related : GarageFinsh.    
     <img src="\images\15.png">
     <img src="\images\16.png">
-    Of all variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, BsmtFullBath, (X)1stFlrSF, GrLiveArea, FullBath, HalfBath, TotRmsAbvGrd, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF, OpenPorchSF, MSZonging, LotShape, MasVnrType, BsmtExposure, HeatingQC, KitchenQual, FireplaceQu, GarageFinsh, SaleType and SaleCondition <b>show good shape resemblance or anti-similarity.</b>  
+    Of all variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, BsmtFullBath, (X)1stFlrSF, GrLiveArea, FullBath, HalfBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF, OpenPorchSF, MSZonging, LotShape, MasVnrType,ExterQual, Foundation, BsmtQual, BsmtExposure, HeatingQC, KitchenQual, FireplaceQu, GarageFinsh <b>show good shape resemblance or anti-similarity.</b>  
     This means these variables are of <b>good correlations with Saleprice.</b>  
       
         
