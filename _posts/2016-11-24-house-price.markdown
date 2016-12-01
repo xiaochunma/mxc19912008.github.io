@@ -173,4 +173,5 @@ epx <- exp(px)
 ept <- (epx+epl+prf)/3
 </pre>  
 I got a score of 0.11975 on public leaderboard. There is a lot to be improved, for example, use more models.
-<img src="\images\score.jpg">
+<img src="\images\score.jpg">  
+<a href="#top" target="_self">Back to top</a>    
