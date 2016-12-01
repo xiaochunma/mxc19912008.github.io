@@ -12,6 +12,7 @@ ghpages: 'house-prices-advanced-regression-techniques/data'
 <i>This is a house price competition program on Kaggle.  
 The dataset was compiled by Dean De Cock for use in data science education.  
 This project is based on two datasets of train and test. The train dataset is of 1460 items with 80 variables and one especially important one of "Saleprice", and we want to make prediction on saleprice of test dataset.</i>    
+  
 Following is a short exhibition of my work.    
   
 <a href="#1">1. Correlation visualization with R packages(tabplots)</a>  
