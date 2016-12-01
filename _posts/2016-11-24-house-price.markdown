@@ -35,46 +35,46 @@ This part aims to find strong-related variables to "Saleprice" amoung 80 variabl
 <img src="\images\2.png">  
 <b>Strongly related : YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1.</b>   
       
-<img src="\images\3.png">
+<img src="\images\3.png">  
 <b>Strongly related : TotalBsmtSF, (X)1stFlrSF.</b>   
       
-<img src="\images\4.png">
+<img src="\images\4.png">  
 <b>Strongly related : GrLiveArea, BsmtFullBath, FullBath.</b>   
       
-<img src="\images\5.png">
+<img src="\images\5.png">  
 <b>Strongly related : HalfBath, TotRmsAbvGrd,  FirePlaces.</b>  
       
-<img src="\images\6.png">
+<img src="\images\6.png">  
 <b>Strongly related : GarageYrBlt, GarageCars, GarageArea, WoodDeskSF, OpenPorchSF.</b>   
       
-<img src="\images\7.png">
+<img src="\images\7.png">  
 <b>Strongly related : None.</b>    
-      
-<img src="\images\8.png">  
+       
+<img src="\images\8.png">    
 <b>Strongly related : MSZonging.</b>   
       
-<img src="\images\9.png">  
+<img src="\images\9.png">    
 <b>Strongly related : LotShape.</b>   
       
-<img src="\images\10.png">
+<img src="\images\10.png">  
 <b>Strongly related : None.</b>    
       
-<img src="\images\11.png">
+<img src="\images\11.png">  
 <b>Strongly related : MasVnrType.</b>    
       
-<img src="\images\12.png">
+<img src="\images\12.png">  
 <b>Strongly related : ExterQual, Foundation, BsmtQual.</b>      
       
-<img src="\images\13.png">
+<img src="\images\13.png">  
 <b>Strongly related : BsmtExposure, HeatingQC.</b>      
       
-<img src="\images\14.png">
+<img src="\images\14.png">  
 <b>Strongly related : KitchenQual, FireplaceQu.</b>      
       
-<img src="\images\15.png">  
+<img src="\images\15.png">    
 <b>Strongly related : GarageType, GarageFinsh.</b>      
       
-<img src="\images\16.png">
+<img src="\images\16.png">  
 <b>Strongly related : None.</b>     
       
 Of all variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, BsmtFullBath, (X)1stFlrSF, GrLiveArea, FullBath, HalfBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF, OpenPorchSF, MSZonging, LotShape, MasVnrType,ExterQual, Foundation, BsmtQual, BsmtExposure, HeatingQC, KitchenQual, FireplaceQu, GarageType, GarageFinsh <b>show good shape resemblance or anti-similarity.</b>  
