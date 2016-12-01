@@ -9,7 +9,7 @@ ghsource: 'house-prices-advanced-regression-techniques'
 ghpages: 'house-prices-advanced-regression-techniques/data'
 
 ---
-This is a house price prediction program on Kaggle.  
+This is a house price competition program on Kaggle.  
 The dataset was compiled by Dean De Cock for use in data science education.  
 This project is based on two datasets of train and test. The train dataset is of 1460 items with 80 variables and one especially important one of "Saleprice", and we want to make prediction on saleprice of test dataset.  
 Following is a short exhibition of my work.  
@@ -78,6 +78,7 @@ This part aims to find strong-related variables to "Saleprice" amoung 80 variabl
 <b>Strongly related : None.</b>     
       
 Of all variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, BsmtFullBath, (X)1stFlrSF, GrLiveArea, FullBath, HalfBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF, OpenPorchSF, MSZonging, LotShape, MasVnrType,ExterQual, Foundation, BsmtQual, BsmtExposure, HeatingQC, KitchenQual, FireplaceQu, GarageType, GarageFinsh <b>show good shape resemblance or anti-similarity.</b>  
+  
 This means these variables are of <b>good correlations with Saleprice.</b>  
       
         
@@ -87,6 +88,7 @@ This means these variables are of <b>good correlations with Saleprice.</b>
 This section is to find strong-related numeric variables amoung each other to help us assure feature selection and better relate highly related variables for feature engineering.  
 <img src="\images\cor-10-1.png">
 Of all numeric variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, 1stFlrSF, GrLiveArea, FullBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF and OpenPorchSF show strong co-relationship with saleprice, which is in accordance with our conclusion above.   
+  
 Besides, because it is easy to judge the relationship of any two variables in this visualized correlation matrix, we can dig deeper to do feature engineering or something else interesting:)  
 
     
@@ -99,6 +101,7 @@ Firstly, we drop outliers in the train data in case of imprecise prediction. To 
 <img src="\images\GrLivArea_outliers.png">  
 <b> Dealing with missing values </b>  
 Then, we need to combine train and test together using 'rbind' to uniformize factor levels in these two dataframe(be sure to give NAs to test$SalePrice), which will help us a lot when making predictions. By the way, it is also a good time to fill the missing values(except those in SalePrice of test). Here we can use 'mice' or 'rpart'. However, before this we need to decide the meanning of missing values, for example, missing values in "FireplaceQu" means no fireplace means no quality when we check those in "Fireplace", while "LotFrontage" misses its values maybe because of misses of records since a house should has its lot frontage. Below is how I deal with missing values with 'mice' and 'rpart' packages.  
+  
 This gives an example of 'mice' imputation  
 <pre>
 # Selecting the variables that need to be 'miced' 
