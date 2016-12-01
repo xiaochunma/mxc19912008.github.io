@@ -53,7 +53,7 @@ This section is to find strong-related numeric variables amoung each other to he
 <img src="\images\cor-10-1.png">
 Of all numeric variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, 1stFlrSF, GrLiveArea, FullBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF and OpenPorchSF show strong co-relationship with saleprice, which is in accordance with our conclusion above.   
 Besides, because it is easy to judge the relationship of any two variables in this visualized correlation matrix, we can dig deeper to do feature engineering or something else interesting:)  
-  
+<a href="#top" target="_self">Back to top</a>  
     
       
 <a name="3"> </a>  
