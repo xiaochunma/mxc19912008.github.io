@@ -25,6 +25,7 @@ Following is a short exhibition of my work.
         
 <a name="1"> </a>  
 <h5>1. Correlation visualization with R packages(tabplots)_inspired by Laurae@Kaggle</h5>    
+<a href="#top" target="_self">Back to top</a>    
 
 This part aims to find strong-related variables amoung 80 variables to Saleprice which further help us do feature selection and engineering.  This was drew with R package(tabplots), and the following set of pictures show the number and range of values for each variable as well as the covariance among the variables(both numeric and characters), sepecially with log_saleprice, which was on the right of every row.
     <img src="\images\1.png">
@@ -48,16 +49,18 @@ This part aims to find strong-related variables amoung 80 variables to Saleprice
       
         
 <a name="2"> </a>  
-<h5>2. Correlation visualization with R packages(corrplot, ggplot2)</h5> 
+<h5>2. Correlation visualization with R packages(corrplot, ggplot2)</h5>   
+<a href="#top" target="_self">Back to top</a>    
 This section is to find strong-related numeric variables amoung each other to help us assure feature selection and better relate highly related variables for feature engineering.  
 <img src="\images\cor-10-1.png">
 Of all numeric variables, OverallQual, YearBuilt, YearRemodAdd, MasvnrArea, BsmtFinSF1, TotalBsmtSF, 1stFlrSF, GrLiveArea, FullBath, TotRmsAbvGrd, FirePlaces, GarageYrBlt, GarageCars, GarageArea, WoodDeskSF and OpenPorchSF show strong co-relationship with saleprice, which is in accordance with our conclusion above.   
 Besides, because it is easy to judge the relationship of any two variables in this visualized correlation matrix, we can dig deeper to do feature engineering or something else interesting:)  
-<a href="#top" target="_self">Back to top</a>  
+
     
       
 <a name="3"> </a>  
-<h5>3. Feature engineering, selection, modeling and prediction </h5> 
+<h5>3. Feature engineering, selection, modeling and prediction </h5>   
+<a href="#top" target="_self">Back to top</a>    
 <b> Ruling out outliers</b>  
 Firstly, we drop outliers in the train data in case of imprecise prediction. To find outliers, we can make scatter plot with each numeric variable and saleprice, and find those extremely irregular ones. For example, in the GrLivArea variable, there are two obvious outliers when GrLivArea>4500, thus we can rule them out by setting GrLivArea<=4500, or drop out those that are bigger than 4500.   
 <img src="\images\GrLivArea_outliers.png">  
